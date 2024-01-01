@@ -1,0 +1,9 @@
+{
+  "name": "openfileeditor",
+  "description": "Open any file in your favourite text editor from any web page.",
+  "path": "/home/fabrice/.mozilla/native-messaging-hosts/openfileeditor.sh",
+  "type": "stdio",
+  "allowed_extensions": [
+    "openfileeditor@luigifab.fr"
+  ]
+}

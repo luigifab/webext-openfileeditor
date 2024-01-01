@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>demo</title>
+	<link rel="icon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
+	<meta name="robots" content="noindex"/>
+	<meta charset="utf-8">
+</head>
+<body>
+	<p><b>Demo for <a href="https://github.com/luigifab/webext-openfileeditor">webext-openfileeditor</a></b></p>
+
+	<pre style="font-style:italic;" id="openfileeditorstatus">...</pre>
+
+	<hr />
+
+	<p>Supported syntax / If you have a robots.txt file in your /var/www/ directory, click on the following a,span,button:</p>
+	<ul style="line-height:1.5;">
+		<li>
+			<code>&lt;a href="[...://]<b>{filepath}</b>" <b>class="openfileeditor"</b> <em>data-line="{linenumb}"</em>&gt;...&lt;/a&gt;</code>
+			/
+			<a href="asyouwant:///var/www/robots.txt" class="openfileeditor" data-line="2">link</a>
+		</li>
+		<li>
+			<code>&lt;a href="..." <b>class="openfileeditor"</b> <b>data-file="{filepath}"</b> <em>data-line="{linenumb}"</em>&gt;...&lt;/a&gt;</code>
+			/
+			<a href="https://en.wikipedia.org/wiki/Robots.txt" class="openfileeditor" data-file="/var/www/robots.txt" data-line="2">link</a>
+		</li>
+		<li>
+			<code>&lt;span <b>class="openfileeditor"</b> <b>data-file="{filepath}"</b> <em>data-line="{linenumb}"</em>&gt;...&lt;/span&gt;</code>
+			/
+			<span style="background-color:cyan;"><span class="openfileeditor" data-file="/var/www/robots.txt" data-line="2">...</span></span>
+		</li>
+		<li>
+			<code>&lt;span <b>class="openfileeditor"</b> <em>data-line="{linenumb}"</em>&gt;<b>{filepath}</b>&lt;/span&gt;</code>
+			/
+			<span style="background-color:cyan;"><span class="openfileeditor" data-line="2">/var/www/robots.txt</span></span>
+		</li>
+		<li>
+			<code>&lt;button <b>class="openfileeditor"</b> <b>data-file="{filepath}"</b> <em>data-line="{linenumb}"</em>&gt;....&lt;/button&gt;</code>
+			/
+			<button type="button" class="openfileeditor" data-file="/var/www/robots.txt" data-line="2">button</button>
+		</li>
+	</ul>
+
+	<hr />
+
+	<p>Bellow an OpenMage error page in dev mode:</p>
+	<pre style="white-space:pre-wrap;">TypeError: strlen(): Argument #1 ($string) must be of type string, float given
+
+#0 <span class="openfileeditor" data-line="301">/var/www/openmage/app/code/core/Mage/Catalog/Model/Layer/Filter/Price.php</span>(301): Mage_Catalog_Model_Layer_Filter_Price->getPriceRange()
+#1 <span class="openfileeditor" data-line="141">/var/www/openmage/app/code/core/Mage/Catalog/Model/Layer/Filter/Abstract.php</span>(141): Mage_Catalog_Model_Layer_Filter_Price->_getItemsData()
+#2 <span class="openfileeditor" data-line="110">/var/www/openmage/app/code/core/Mage/Catalog/Model/Layer/Filter/Abstract.php</span>(110): Mage_Catalog_Model_Layer_Filter_Abstract->_initItems()
+#3 <span class="openfileeditor" data-line="99">/var/www/openmage/app/code/core/Mage/Catalog/Model/Layer/Filter/Abstract.php</span>(99): Mage_Catalog_Model_Layer_Filter_Abstract->getItems()
+#4 <span class="openfileeditor" data-line="122">/var/www/openmage/app/code/core/Mage/Catalog/Block/Layer/Filter/Abstract.php</span>(122): Mage_Catalog_Model_Layer_Filter_Abstract->getItemsCount()
+#5 <span class="openfileeditor" data-line="38">/var/www/openmage/app/design/frontend/rwd/default/template/catalog/layer/view.phtml</span>(38): Mage_Catalog_Block_Layer_Filter_Abstract->getItemsCount()
+#6 <span class="openfileeditor" data-line="273">/var/www/openmage/app/code/core/Mage/Core/Block/Template.php</span>(273): include('...')
+#7 <span class="openfileeditor" data-line="310">/var/www/openmage/app/code/core/Mage/Core/Block/Template.php</span>(310): Mage_Core_Block_Template->fetchView()
+#8 <span class="openfileeditor" data-line="323">/var/www/openmage/app/code/core/Mage/Core/Block/Template.php</span>(323): Mage_Core_Block_Template->renderView()
+#9 <span class="openfileeditor" data-line="937">/var/www/openmage/app/code/core/Mage/Core/Block/Abstract.php</span>(937): Mage_Core_Block_Template->_toHtml()
+#10 <span class="openfileeditor" data-line="35">/var/www/openmage/app/code/core/Mage/Core/Block/Text/List.php</span>(35): Mage_Core_Block_Abstract->toHtml()
+#11 <span class="openfileeditor" data-line="937">/var/www/openmage/app/code/core/Mage/Core/Block/Abstract.php</span>(937): Mage_Core_Block_Text_List->_toHtml()
+#12 <span class="openfileeditor" data-line="652">/var/www/openmage/app/code/core/Mage/Core/Block/Abstract.php</span>(652): Mage_Core_Block_Abstract->toHtml()
+#13 <span class="openfileeditor" data-line="596">/var/www/openmage/app/code/core/Mage/Core/Block/Abstract.php</span>(596): Mage_Core_Block_Abstract->_getChildHtml()
+#14 <span class="openfileeditor" data-line="37">/var/www/openmage/app/design/frontend/rwd/default/template/page/3columns.phtml</span>(37): Mage_Core_Block_Abstract->getChildHtml()
+#15 <span class="openfileeditor" data-line="273">/var/www/openmage/app/code/core/Mage/Core/Block/Template.php</span>(273): include('...')
+#16 <span class="openfileeditor" data-line="310">/var/www/openmage/app/code/core/Mage/Core/Block/Template.php</span>(310): Mage_Core_Block_Template->fetchView()
+#17 <span class="openfileeditor" data-line="323">/var/www/openmage/app/code/core/Mage/Core/Block/Template.php</span>(323): Mage_Core_Block_Template->renderView()
+#18 <span class="openfileeditor" data-line="937">/var/www/openmage/app/code/core/Mage/Core/Block/Abstract.php</span>(937): Mage_Core_Block_Template->_toHtml()
+#19 <span class="openfileeditor" data-line="587">/var/www/openmage/app/code/core/Mage/Core/Model/Layout.php</span>(587): Mage_Core_Block_Abstract->toHtml()
+#20 <span class="openfileeditor" data-line="390">/var/www/openmage/app/code/core/Mage/Core/Controller/Varien/Action.php</span>(390): Mage_Core_Model_Layout->getOutput()
+#21 <span class="openfileeditor" data-line="166">/var/www/openmage/app/code/core/Mage/Catalog/controllers/CategoryController.php</span>(166): Mage_Core_Controller_Varien_Action->renderLayout()
+#22 <span class="openfileeditor" data-line="421">/var/www/openmage/app/code/core/Mage/Core/Controller/Varien/Action.php</span>(421): Mage_Catalog_CategoryController->viewAction()
+#23 <span class="openfileeditor" data-line="255">/var/www/openmage/app/code/core/Mage/Core/Controller/Varien/Router/Standard.php</span>(255): Mage_Core_Controller_Varien_Action->dispatch()
+#24 <span class="openfileeditor" data-line="181">/var/www/openmage/app/code/core/Mage/Core/Controller/Varien/Front.php</span>(181): Mage_Core_Controller_Varien_Router_Standard->match()
+#25 <span class="openfileeditor" data-line="358">/var/www/openmage/app/code/core/Mage/Core/Model/App.php</span>(358): Mage_Core_Controller_Varien_Front->dispatch()
+#26 <span class="openfileeditor" data-line="740">/var/www/openmage/app/Mage.php</span>(740): Mage_Core_Model_App->run()
+#27 <span class="openfileeditor" data-line="41">/var/www/openmage/index.php</span>(41): Mage::run()
+#28 {main}
+  thrown in <span class="openfileeditor" data-line="102"><b>/var/www/openmage/app/code/core/Mage/Catalog/Model/Layer/Filter/Price.php</b></span> on line <b>102</b>
+  catched by Mage::printException() at 2023-11-18T09:29:59+00:00
+</pre>
+</body>
+</html>

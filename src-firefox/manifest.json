@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "OpenFileEditor",
+  "description": "Open any file in your favourite text editor from any web page.",
+  "version": "1.0.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "openfileeditor@luigifab.fr",
+      "strict_min_version": "57.0"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": ["nativeMessaging", "activeTab"]
+}

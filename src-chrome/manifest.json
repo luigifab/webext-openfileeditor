@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "OpenFileEditor",
+  "description": "Open any file in your favourite text editor from any web page.",
+  "version": "1.0.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": ["nativeMessaging", "activeTab"]
+}
