@@ -5,7 +5,7 @@ Stop russian war. **🇺🇦 Free Ukraine!**
 Tired of copying and pasting the file path when an error occurs?\
 With this browser extension, clic on a link to open the file in your favourite text editor.
 
-WARNING: THIS EXTENSION IS INTENDED FOR WEB DEVELOPERS ONLY
+Warning: this extension is intended/useful for web developers only.
 
 ## Extension installation
 
@@ -32,14 +32,10 @@ For **Opera**, install the bash script:
 Secondly:
 - Update the **path** of _openfileeditor.sh_ in _openfileeditor.json_ (it must exists)
 - Be sure that _openfileeditor.sh_ **is executable** (`chmod +x openfileeditor.sh`)
-- By default, the script will try to run **geany**, and if it's not available, it will run **xdg-open**, so feel free to update it with your favourite text editor
+- By default, the script will try to run **geany** for text files, and if it's not available, it will run **xdg-open**, so feel free to update it with your favourite text editor
 
 Thirdly, install the extension:
 - [Firefox](https://addons.mozilla.org/firefox/addon/openfileeditor/)
-- Chrome/Chromium not yet available
-- Edge not yet available
-- [Opera](https://addons.opera.com/extensions/details/openfileeditor/)
-- Safari not yet available
 
 ## Extension upgrade
 
@@ -57,10 +53,6 @@ Compatibility:
 - [opemange/cronlog 4.6.0+](https://www.luigifab.fr/openmage/cronlog)
 - [opemange/modules 4.6.0+](https://www.luigifab.fr/openmage/modules)
 - [opemange/versioning 4.6.0+](https://www.luigifab.fr/openmage/versioning)
-- BlackFire.io: not yet
-- Sentry.io: not yet
-- GitHub: not yet
-- GitLab: not yet
 
 ## Usage
 

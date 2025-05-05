@@ -2,7 +2,7 @@
  * Created L/13/11/2023
  * Updated J/16/11/2023
  *
- * Copyright 2023 | Fabrice Creuzot (luigifab) <code~luigifab~fr>
+ * Copyright 2023-2025 | Fabrice Creuzot (luigifab) <code~luigifab~fr>
  * https://github.com/luigifab/webext-openfileeditor
  *
  * This program is free software, you can redistribute it or modify

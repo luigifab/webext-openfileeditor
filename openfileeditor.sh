@@ -1,8 +1,8 @@
 #!/bin/bash
 # Created L/13/11/2023
-# Updated S/25/11/2023
+# Updated L/14/04/2025
 #
-# Copyright 2023 | Fabrice Creuzot (luigifab) <code~luigifab~fr>
+# Copyright 2023-2025 | Fabrice Creuzot (luigifab) <code~luigifab~fr>
 # https://github.com/luigifab/webext-openfileeditor
 #
 # This program is free software, you can redistribute it or modify
@@ -15,7 +15,7 @@
 # merchantability or fitness for a particular purpose. See the
 # GNU General Public License (GPL) for more details.
 
-# created with help of chatgpt
+# created with help of ChatGPT
 # wait: !/var/www/a.b| or !/var/www/a.b:2|  if found, run geany or xdg-open
 #while true; do
 
@@ -40,7 +40,6 @@
 			filename="${filename%:*}"
 		fi
 
-		# ###########################"
 		# if you need to search and replace
 		# for example, here, it replace:
 		#  /var/www/pouet/pouet/robots.txt
@@ -54,30 +53,40 @@
 		# by:
 		#  /var/www/cool/code/*/src/app/code/community/Luigifab/Apijs/Block/Adminhtml/Rewrite/Gallery.php
 		# then it update to:
-		#  /var/www/cool/code/mage-apijs/src/app/code/community/Luigifab/Apijs/Block/Adminhtml/Rewrite/Gallery.php
-		filename=$(echo "$filename" | sed 's/cool\/zzx\/app\/code\/community/cool\/code\/*\/src\/app\/code\/community/')
+		#  /var/www/cool/code/maho-apijs/src/app/code/community/Luigifab/Apijs/Block/Adminhtml/Rewrite/Gallery.php
+		filename=$(echo "$filename" | sed 's/cool\/zzx\/app\/code\/community/cool\/code\/maho*\/src\/app\/code\/community/')
+		filename=$(echo "$filename" | sed 's/cool\/zzx\/app\/design/cool\/code\/maho*\/src\/app\/design/')
+
 		shopt -s nullglob
 		files=($filename)
 		if [ ${#files[@]} -gt 0 ]; then
 			filename="${files[0]}"
 		fi
-
-		echo -e "          update path to  $filename" >> /tmp/openfileeditor.txt
-		# ###########################"
+		echo -e "           update path to $filename" >> /tmp/openfileeditor.txt
 
 		if [[ $filename =~ [[:alnum:]_]+\.[[:alnum:]]+ ]]; then
 
 			if [[ -f $filename ]]; then
 
-				echo -e "               open file  $filename $filenumb" >> /tmp/openfileeditor.txt
+				echo -e "                open file $filename $filenumb" >> /tmp/openfileeditor.txt
+				mimetype=$(file --mime-type -b "$filename")
 
-				if command -v geany &> /dev/null; then
-					if ((filenumb > 0)); then
-						geany "$filename" +"$filenumb" &
+				if [[ $mimetype == image/* ]]; then
+					# for image files
+					xdg-open "$filename" &
+				elif [[ $mimetype == text/* ]]; then
+					# for text files
+					if command -v geany &> /dev/null; then
+						if ((filenumb > 0)); then
+							geany "$filename" +"$filenumb" &
+						else
+							geany "$filename" &
+						fi
 					else
-						geany "$filename" &
+						xdg-open "$filename" &
 					fi
 				else
+					# for other files
 					xdg-open "$filename" &
 				fi
 			fi
