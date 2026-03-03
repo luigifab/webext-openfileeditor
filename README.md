@@ -5,7 +5,7 @@ Stop russian war. **🇺🇦 Free Ukraine!**
 Tired of copying and pasting the file path when an error occurs?\
 With this browser extension, clic on a link to open the file in your favourite text editor.
 
-Warning: this extension is intended/useful for web developers only.
+This extension is intended/useful for web developers.
 
 ## Extension installation
 
@@ -45,24 +45,20 @@ But it's not the case for _openfileeditor.sh_ and _openfileeditor.json_, follow 
 
 ## Website update
 
-You must update your web page error, read [demo](https://luigifab.github.io/webext-openfileeditor/index.html) examples.
+You must update your error page, read [demo](https://luigifab.github.io/webext-openfileeditor/index.html) examples.
 
-Compatibility:
-- [OpenMage](https://github.com/OpenMage/magento-lts): with [PR 3679](https://github.com/OpenMage/magento-lts/pull/3679)
-- [opemange/maillog 5.9.0+](https://www.luigifab.fr/openmage/maillog)
-- [opemange/cronlog 4.6.0+](https://www.luigifab.fr/openmage/cronlog)
-- [opemange/modules 4.6.0+](https://www.luigifab.fr/openmage/modules)
-- [opemange/versioning 4.6.0+](https://www.luigifab.fr/openmage/versioning)
+It's also working with _xyz.sentry.io_ stack traces.
 
 ## Usage
 
-Open your favourite text editor, when an error occur in your website, click on the link to open the file.\
+Open your favourite text editor, when an error occurs in your website, click on the link to open the file.\
 Try the [demo](https://luigifab.github.io/webext-openfileeditor/index.html).
 
-There are logs in your browser console (`OpenFileEditor: ...`) and in your tmp directory (`/tmp/openfileeditor.txt`).
+There are logs in your browser console (`OpenFileEditor: ...`) and in your tmp directory (`/tmp/openfileeditor.txt`). Don't be stupid, you must have the file on your computer.
 
-Don't be stupid! You must have the file on your computer.
+## Copyright
 
----
+Current version: 1.1.0 (03/03/2026)
 
+This program is provided under the terms of the **GNU GPLv2+** license.\
 If you like, take some of your time to improve some translations, go to https://bit.ly/2HyCCEc.

@@ -1,6 +1,6 @@
 /**
  * Created L/13/11/2023
- * Updated D/03/12/2023
+ * Updated S/28/02/2026
  *
  * Copyright 2023-2025 | Fabrice Creuzot (luigifab) <code~luigifab~fr>
  * https://github.com/luigifab/webext-openfileeditor
@@ -75,12 +75,13 @@ function OpenFileEditor(ev) {
 	catch (e) {
 		logActionOpenFileEditor('error', 'OpenFileEditor: ' + e.message);
 	}
-}
 
-let delayOpenFileEditor;
+	ev.stopPropagation();
+}
 
 function initOpenFileEditor(elems) {
 
+	"use strict";
 	if (elems === false) {
 		let observer = new MutationObserver(function (mutations) {
 			mutations.forEach(function (mutation) {
@@ -93,27 +94,64 @@ function initOpenFileEditor(elems) {
 		observer.observe(document, { subtree: true, childList: true });
 	}
 
-	let nb = 0;
-	elems = elems || document;
+	let nb = 0, sentry, btn, fln, lnb;
+	sentry = document.querySelectorAll('#blk_router div.traceback li.system-frame');
+	elems  = elems || document;
 
-	elems.querySelectorAll('a.openfileeditor, span.openfileeditor, button.openfileeditor').forEach(function (elem) {
+	if (sentry.length > 0) {
+		// sentry.io
+		sentry.forEach(function (elem) {
 
-		if (elem.classList.contains('openfileeditorok'))
-			elem.removeEventListener('click', OpenFileEditor);
-		else
-			elem.classList.add('openfileeditorok');
+			fln = elem.querySelector('code.filename');
+			lnb = elem.querySelector('code.lineno');
 
-		elem.addEventListener('click', OpenFileEditor);
+			if (fln && lnb) {
 
-		if (elem.nodeName === 'A')
-			elem.onclick = function () { return false; };
-		else if (elem.nodeName === 'SPAN')
-			elem.setAttribute('style', 'cursor:pointer; text-decoration:underline;');
+				fln = fln.textContent.trim();
+				lnb = lnb.textContent.trim();
 
-		nb++;
-	});
+				if ((fln.length > 2) && (fln[0] == '/')) {
+
+					btn = elem.querySelector('button.openfileeditor');
+					if (!btn) {
+						btn = document.createElement('button');
+						btn.setAttribute('type', 'button');
+						btn.setAttribute('class', 'openfileeditor openfileeditorok sentry');
+						btn.setAttribute('style', 'margin:0 5px; padding:0 2px; border-radius:4px; background-color:lime;');
+						btn.appendChild(document.createTextNode('open'));
+						elem.querySelector('code.lineno').parentNode.appendChild(btn);
+					}
+
+					btn.addEventListener('click', OpenFileEditor);
+					btn.setAttribute('data-file', fln);
+					btn.setAttribute('data-line', lnb);
+					nb++;
+				}
+			}
+		});
+	}
+	else {
+		// world
+		elems.querySelectorAll('a.openfileeditor, span.openfileeditor, button.openfileeditor').forEach(function (elem) {
+
+			if (elem.classList.contains('openfileeditorok'))
+				elem.removeEventListener('click', OpenFileEditor);
+			else
+				elem.classList.add('openfileeditorok');
+
+			elem.addEventListener('click', OpenFileEditor);
+
+			if (elem.nodeName === 'A')
+				elem.onclick = function () { return false; };
+			else if (elem.nodeName === 'SPAN')
+				elem.setAttribute('style', 'cursor:pointer; text-decoration:underline;');
+
+			nb++;
+		});
+	}
 
 	logActionOpenFileEditor('info', 'OpenFileEditor: ' + nb + ' link(s)');
 }
 
+let delayOpenFileEditor;
 initOpenFileEditor(false);

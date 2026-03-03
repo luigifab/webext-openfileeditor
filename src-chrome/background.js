@@ -1,6 +1,6 @@
 /**
  * Created L/13/11/2023
- * Updated J/16/11/2023
+ * Updated L/28/07/2025
  *
  * Copyright 2023-2025 | Fabrice Creuzot (luigifab) <code~luigifab~fr>
  * https://github.com/luigifab/webext-openfileeditor
@@ -16,7 +16,7 @@
  * GNU General Public License (GPL) for more details.
  */
 
-// base on https://github.com/mdn/webextensions-examples/tree/main/native-messaging
+// @see https://github.com/mdn/webextensions-examples/tree/main/native-messaging
 // openfileeditor.sh is a bash script that open the real text editor
 let root = (typeof browser == 'object') ? browser : chrome;
 

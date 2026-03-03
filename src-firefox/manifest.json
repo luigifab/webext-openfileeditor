@@ -2,11 +2,11 @@
   "manifest_version": 2,
   "name": "OpenFileEditor",
   "description": "Open any file in your favourite text editor from any web page.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "browser_specific_settings": {
     "gecko": {
       "id": "openfileeditor@luigifab.fr",
-      "strict_min_version": "57.0"
+      "strict_min_version": "58.0"
     }
   },
   "background": {
